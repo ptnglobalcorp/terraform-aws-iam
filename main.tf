@@ -12,6 +12,7 @@ locals {
 # IAM User for accessing private S3 bucket
 resource "aws_iam_user" "s3_bucket_private_access" {
   count = local.create_private_bucket ? 1 : 0
+
   name = "${local.prefix}-${local.project}-${local.environment}-iam-${local.region_code}-bucket" # Define name of aws iam user
 
   tags = merge(var.tags, {
@@ -22,12 +23,14 @@ resource "aws_iam_user" "s3_bucket_private_access" {
 # IAM Access Key for the above IAM user to access S3 bucket
 resource "aws_iam_access_key" "s3_bucket_private_access" {
   count = local.create_private_bucket ? 1 : 0
+
   user = aws_iam_user.s3_bucket_private_access[count.index].name # create access key for s3 private bucket access
 }
 
 # User policy for access private bucket
 resource "aws_iam_user_policy" "s3_bucket_policy_private_access" {
   count = local.create_private_bucket ? 1 : 0
+
   name = "${local.prefix}-${local.project}-${local.environment}-iam-policy-${local.region_code}-bucket" # define name of iam user policy
   user = aws_iam_user.s3_bucket_private_access[count.index].name # pass the user of iam user private bucket
   policy = jsonencode({
@@ -77,12 +80,14 @@ resource "aws_iam_user" "ecr_private_access" {
 # IAM Access Key for the above IAM user to access ECR repo
 resource "aws_iam_access_key" "ecr_private_access" {
   count = local.create_private_ecr ? 1 : 0
+
   user = aws_iam_user.ecr_private_access[count.index].name
 }
 
 # User policy for access private repo
 resource "aws_iam_policy" "ecr_policy_private_access" {
   count = local.create_private_ecr ? 1 : 0
+
   name = "ecr_policy_private"
   description = "ECR access policy"
   policy = jsonencode({
@@ -113,8 +118,7 @@ resource "aws_iam_policy" "ecr_policy_private_access" {
 # Attach policy for user ECR repo
 resource "aws_iam_user_policy_attachment" "user_ecr_policy_attach_private_access" {
   count = local.create_private_ecr ? 1 : 0
+
   user = aws_iam_user.ecr_private_access[count.index].name
   policy_arn = aws_iam_policy.ecr_policy_private_access[count.index].arn
 }
-
-#---------------------------------------------------- NONE ----------------------------------------------------
