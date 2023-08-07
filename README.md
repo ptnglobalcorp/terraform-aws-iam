@@ -32,22 +32,22 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_create_private_bucket"></a> [create\_private\_bucket](#input\_create\_private\_bucket) | Create private bucket | `bool` | `false` | no |
 | <a name="input_create_private_ecr"></a> [create\_private\_ecr](#input\_create\_private\_ecr) | Create private ecr repo | `bool` | `false` | no |
-| <a name="input_environment"></a> [environment](#input\_environment) | n/a | `string` | n/a | yes |
-| <a name="input_prefix"></a> [prefix](#input\_prefix) | n/a | `string` | n/a | yes |
-| <a name="input_project"></a> [project](#input\_project) | n/a | `string` | n/a | yes |
-| <a name="input_region"></a> [region](#input\_region) | n/a | `string` | n/a | yes |
-| <a name="input_region_code"></a> [region\_code](#input\_region\_code) | n/a | `string` | n/a | yes |
+| <a name="input_environment"></a> [environment](#input\_environment) | Environment for the infrastructure | `string` | n/a | yes |
+| <a name="input_prefix"></a> [prefix](#input\_prefix) | Prefix for name of resource | `string` | n/a | yes |
+| <a name="input_project"></a> [project](#input\_project) | Name of project | `string` | n/a | yes |
+| <a name="input_region"></a> [region](#input\_region) | Region name | `string` | n/a | yes |
+| <a name="input_region_code"></a> [region\_code](#input\_region\_code) | Region code for development | `string` | n/a | yes |
 | <a name="input_s3_bucket_private_access_arn"></a> [s3\_bucket\_private\_access\_arn](#input\_s3\_bucket\_private\_access\_arn) | ARN for apply policy s3 bucket resouce | `string` | n/a | yes |
-| <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to add to all resources. | `map(string)` | `{}` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | (Optional) A mapping of tags to assign to the bucket. | `map(string)` | `{}` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_ecr_private_access_key"></a> [ecr\_private\_access\_key](#output\_ecr\_private\_access\_key) | n/a |
-| <a name="output_ecr_private_secret_key"></a> [ecr\_private\_secret\_key](#output\_ecr\_private\_secret\_key) | n/a |
-| <a name="output_s3_bucket_private_access_key"></a> [s3\_bucket\_private\_access\_key](#output\_s3\_bucket\_private\_access\_key) | n/a |
-| <a name="output_s3_bucket_private_secret_key"></a> [s3\_bucket\_private\_secret\_key](#output\_s3\_bucket\_private\_secret\_key) | n/a |
-| <a name="output_user_ecr"></a> [user\_ecr](#output\_user\_ecr) | ECR -------------------------------------------------------------------------------------- |
-| <a name="output_user_s3"></a> [user\_s3](#output\_user\_s3) | S3 -------------------------------------------------------------------------------------- |
+| <a name="output_ecr_private_access_key"></a> [ecr\_private\_access\_key](#output\_ecr\_private\_access\_key) | Private key to access ecr private |
+| <a name="output_ecr_private_secret_key"></a> [ecr\_private\_secret\_key](#output\_ecr\_private\_secret\_key) | Secret key to access ecr private |
+| <a name="output_s3_bucket_private_access_key"></a> [s3\_bucket\_private\_access\_key](#output\_s3\_bucket\_private\_access\_key) | Private key to access s3 bucket private |
+| <a name="output_s3_bucket_private_secret_key"></a> [s3\_bucket\_private\_secret\_key](#output\_s3\_bucket\_private\_secret\_key) | Secret key to access s3 bucket private |
+| <a name="output_user_ecr"></a> [user\_ecr](#output\_user\_ecr) | User to access ecr |
+| <a name="output_user_s3"></a> [user\_s3](#output\_user\_s3) | User to access s3 |
 <!-- END_TF_DOCS -->
