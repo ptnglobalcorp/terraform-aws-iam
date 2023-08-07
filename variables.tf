@@ -37,7 +37,19 @@ variable "create_private_ecr" {
   default     = false
 }
 
+variable "custom_ecr_policy_private_access_policy" {
+  description = "Add ECR policy for private access"
+  default = ""
+  type = any  
+}
+
 # S3
+variable "custom_s3_bucket_policy_private_access_policy" {
+  description = "Add S3 policy for bucket private access"
+  default = ""
+  type = any  
+}
+
 variable "create_private_bucket" {
   description = "Create private bucket"
   type        = bool
