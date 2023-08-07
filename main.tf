@@ -33,7 +33,7 @@ resource "aws_iam_user_policy" "s3_bucket_policy_private_access" {
 
   name = "${local.prefix}-${local.project}-${local.environment}-iam-policy-${local.region_code}-bucket" # define name of iam user policy
   user = aws_iam_user.s3_bucket_private_access[count.index].name # pass the user of iam user private bucket
-  policy = jsonencode({
+  policy = var.custom_s3_bucket_policy_private_access_policy != "" ? var.custom_s3_bucket_policy_private_access_policy : jsonencode({
     "Version" : "2012-10-17",
     "Statement" : [  
       {
@@ -90,7 +90,7 @@ resource "aws_iam_policy" "ecr_policy_private_access" {
 
   name = "ecr_policy_private"
   description = "ECR access policy"
-  policy = jsonencode({
+  policy = var.custom_ecr_policy_private_access_policy != "" ?var.custom_ecr_policy_private_access_policy : jsonencode({
     Version = "2012-10-17"
     Statement = [
       {
