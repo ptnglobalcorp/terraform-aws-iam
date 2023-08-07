@@ -35,6 +35,8 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_create_private_bucket"></a> [create\_private\_bucket](#input\_create\_private\_bucket) | Create private bucket | `bool` | `false` | no |
 | <a name="input_create_private_ecr"></a> [create\_private\_ecr](#input\_create\_private\_ecr) | Create private ecr repo | `bool` | `false` | no |
+| <a name="input_custom_ecr_policy_private_access_policy"></a> [custom\_ecr\_policy\_private\_access\_policy](#input\_custom\_ecr\_policy\_private\_access\_policy) | Add ECR policy for private access | `any` | `""` | no |
+| <a name="input_custom_s3_bucket_policy_private_access_policy"></a> [custom\_s3\_bucket\_policy\_private\_access\_policy](#input\_custom\_s3\_bucket\_policy\_private\_access\_policy) | Add S3 policy for bucket private access | `any` | `""` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | Environment for the infrastructure | `string` | n/a | yes |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | Prefix for name of resource | `string` | n/a | yes |
 | <a name="input_project"></a> [project](#input\_project) | Name of project | `string` | n/a | yes |
